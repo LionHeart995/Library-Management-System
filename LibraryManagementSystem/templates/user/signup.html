@@ -26,8 +26,8 @@
                     <form method="post">
                         {% csrf_token %}
                         <div class="input-group mb-3">
-                            <!-- <input type="text" class="form-control" placeholder="First name" name="FirstName"> -->
-                            {{ SignUpForm.first_name }}
+                             <input type="text" class="form-control" placeholder="First name" name="first_name">
+<!--                            {{ SignUpForm.first_name }}-->
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -35,8 +35,8 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <!-- <input type="text" class="form-control" placeholder="Last name" name="LastName"> -->
-                            {{ SignUpForm.last_name }}
+                             <input type="text" class="form-control" placeholder="Last name" name="last_name">
+<!--                            {{ SignUpForm.last_name }}-->
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -44,8 +44,8 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <!-- <input type="email" class="form-control" placeholder="Email" name="Email"> -->
-                            {{ SignUpForm.email }}
+                           <input type="email" class="form-control" placeholder="Email" name="email">
+<!--                            {{ SignUpForm.email }}-->
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -53,8 +53,8 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <!-- <input type="password" class="form-control" placeholder="Password" name="password"> -->
-                            {{ SignUpForm.password1 }}
+                            <input type="password" class="form-control" placeholder="Password" name="password1">
+<!--                            {{ SignUpForm.password1 }}-->
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
@@ -62,8 +62,8 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <!-- <input type="password" class="form-control" placeholder="Confirm password" name="password"> -->
-                            {{ SignUpForm.password2 }}
+                            <input type="password" class="form-control" placeholder="Confirm password" name="password2">
+<!--                            {{ SignUpForm.password2 }}-->
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
@@ -71,7 +71,6 @@
                             </div>
                         </div>
 
-                        <!-- /.col -->
                         <div class="col-3">
                             <a href="{% url 'login' %}" style="color:white">
                                 <button type="submit" class="btn btn-primary btn-block">
