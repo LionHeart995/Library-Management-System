@@ -1,94 +1,111 @@
 {% extends 'user/base.html'%}
 {% block title %} Library Management System {% endblock %}
 {% block content %}
-<body class="sidebar-collapse layout-top-nav sidebar-closed dark-mode" class="register-page"  style="height: auto; left: 0;">
+<body class="sidebar-collapse layout-top-nav dark-mode" class="register-page"
+      style="height: auto; left: 0;">
 <div class="wrapper">
-        <!-- Main content -->
-        <div class="content">
-            <div class="container" align="center">
-                <div class="card card-widget widget-user-2 shadow-sm" style="width:50%" align="center">
-                    <div class="widget-user-header bg-primary" align="center">
-                        <div class="widget-user-image" align="center">
-                            <i class="fab fa-bootstrap fa-6x"></i>
-                        </div>
-                        <h1 align="center"><strong>WELCOME TO<br> LIBRARY MANAGEMENT SYSTEM</strong></h1>
+    <!-- Main content -->
+    <div class="content">
+        <div class="container" align="center">
+            <div class="card card-widget widget-user-2 shadow-sm" style="width:50%" align="center">
+                <div class="widget-user-header bg-primary" align="center">
+                    <div class="widget-user-image" align="center">
+                        <i class="fab fa-bootstrap fa-6x"></i>
                     </div>
-
-		            <!--<div class="card">-->
-                        <div class="card-body register-card-body">
-
-                            <h3>Sign Up</h3>
-                            <hr style="border-top: 1px solid white">
-
-                        <h5 class="login-box-msg">Register a new user</h5>
-
-                              <form method="post">
-                                {% csrf_token %}
-                                <div class="input-group mb-3">
-                                <!-- <input type="text" class="form-control" placeholder="First name" name="FirstName"> -->
-                                {{ form.first_name }}
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                        <span class="fas fa-user"></span>
-                                        </div>
-                                    </div>
-                                </div>
-		                            <div class="input-group mb-3">
-                                    <!-- <input type="text" class="form-control" placeholder="Last name" name="LastName"> -->
-                                    {{ form.last_name }}
-                                        <div class="input-group-append">
-                                            <div class="input-group-text">
-                                            <span class="fas fa-user"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <div class="input-group mb-3">
-                                <!-- <input type="email" class="form-control" placeholder="Email" name="Email"> -->
-                                {{ form.email }}
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                        <span class="fas fa-envelope"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="input-group mb-3">
-                                <!-- <input type="password" class="form-control" placeholder="Password" name="password"> -->
-                                {{ form.password1 }}
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                        <span class="fas fa-lock"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="input-group mb-3">
-                                <!-- <input type="password" class="form-control" placeholder="Confirm password" name="password"> -->
-                                {{ form.password2 }}
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                        <span class="fas fa-lock"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- /.col -->
-                                <div class="col-3">
-                                <a href="{% url 'login' %}" style="color:white">
-                                    <button type="submit" class="btn btn-primary btn-block">
-                                        Register</button></a>
-                                </div>
-		                        <p></p>
-		                        <a href="{% url 'login' %}" >
-				                    <center><i>I already have an Account</i></center>
-			                    </a>
-                                <!-- /.col -->
-
-                              </form>
-                        </div>
-                        <!-- /.form-box -->
+                    <h1 align="center"><strong>WELCOME TO<br> LIBRARY MANAGEMENT SYSTEM</strong></h1>
                 </div>
+
+                <!--<div class="card">-->
+                <div class="card-body register-card-body">
+
+                    <h3>Sign Up</h3>
+                    <hr style="border-top: 1px solid white">
+
+                    <h5 class="login-box-msg">Register a new user</h5>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <!-- <input type="text" class="form-control" placeholder="First name" name="FirstName"> -->
+                            {{ SignUpForm.first_name }}
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <!-- <input type="text" class="form-control" placeholder="Last name" name="LastName"> -->
+                            {{ SignUpForm.last_name }}
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <!-- <input type="email" class="form-control" placeholder="Email" name="Email"> -->
+                            {{ SignUpForm.email }}
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <!-- <input type="password" class="form-control" placeholder="Password" name="password"> -->
+                            {{ SignUpForm.password1 }}
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <!-- <input type="password" class="form-control" placeholder="Confirm password" name="password"> -->
+                            {{ SignUpForm.password2 }}
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- /.col -->
+                        <div class="col-3">
+                            <a href="{% url 'login' %}" style="color:white">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    Register
+                                </button>
+                            </a>
+                        </div>
+                        <p></p>
+                        <a href="{% url 'login' %}">
+                            <center><i>I already have an Account</i></center>
+                        </a>
+                        <!-- /.col -->
+
+                    </form>
+                    <div class="container">
+                        <div class="toast-primary">
+<!--                            <div class="toast-header">Error</div>-->
+                            <div class="toast-body">
+                                {% for messsage in messages %}
+                                  {{message}}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 </div>
 </body>
+<script>
+$(document).ready(function(){
+    $('.toast').toast('show');
+});
+</script>
 {% endblock content %}
