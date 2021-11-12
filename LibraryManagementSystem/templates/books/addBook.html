@@ -1,10 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'books/base.html'%}
+{% block title %} Library Management System - Add Book {% endblock %}
+{% block header %}Add Book{% endblock %}
+{% block leftpanel %}
+<li class="nav-item active">
+    <a href="{% url 'addBook' %}" class="nav-link active">
 
-</body>
-</html>
+        <i class="fas fa-plus-square"></i>&nbsp;
+        <p><strong>Add Book</strong></p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{% url 'updateBook' %}" class="nav-link">
+        <i class="fas fa-pen"></i>&nbsp;
+        <p>Update Book</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{% url 'deleteBook' %}" class="nav-link">
+        <i class="fas fa-trash-alt"></i>&nbsp;
+        <p>Delete Book</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{% url 'displayBook' %}" class="nav-link">
+        <i class="fas fa-book"></i> &nbsp;
+        <p>Display Books</p>
+    </a>
+</li>
+{% endblock %}
+{% block content %}
+<div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Add Book</h3>
+              </div>
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Book Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Book Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Author</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Author">
+                  </div>
+                    <div class="form-group">
+                    <label for="exampleInputPassword1">Author</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Author">
+                  </div>
+                    <div class="form-group">
+                    <label for="exampleInputPassword1">Author</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Author">
+                  </div>
+                    <div class="form-group">
+                    <label for="exampleInputPassword1">Author</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Author">
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+{% endblock %}

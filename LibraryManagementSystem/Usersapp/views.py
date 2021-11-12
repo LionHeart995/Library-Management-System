@@ -53,4 +53,4 @@ def signup(request):
 
 def logout(request):
 	auth.logout(request)
-	return render(request, 'user/login.html')
+	return render(request, 'user/logout.html')
