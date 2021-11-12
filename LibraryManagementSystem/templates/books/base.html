@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="https://img.icons8.com/ios/50/000000/b.png" type="image/png"/>
+    <link rel="shortcut icon"
+          href="https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-book-office-stationery-justicon-lineal-color-justicon.png"
+          type="image/png"/>
     <title>{% block title %} {% endblock %}</title>
 
     <!-- DataTables -->
@@ -67,26 +69,26 @@
            id="sidebarscroll">
         <!-- Brand Logo -->
         <a href="{% url 'login' %}" class="brand-link">
-            <span  style="font-size: 1em;">Library Management System</span>
+            <span style="font-size: 1em;">Library Management System</span>
         </a>
 
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <!--                <div class="image">-->
-                    <!--                    <img src="{% static 'dist/img/user2-160x160.jpg'%}" class="img-circle elevation-2" alt="User Image">-->
-                    <!--                </div>-->
-                    <div class="info">
-                        <!--                    Dashboard Heading-->
-                        <a href="" class="d-block " style="font-size: 1.2em; text-align: center;">{%block dashboard%}
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <!--                <div class="image">-->
+                <!--                    <img src="{% static 'dist/img/user2-160x160.jpg'%}" class="img-circle elevation-2" alt="User Image">-->
+                <!--                </div>-->
+                <div class="info">
+                    <!--                    Dashboard Heading-->
+                    <a href="" class="d-block " style="font-size: 1.2em; text-align: center;">{%block dashboard%}
 
-                            {%endblock%}</a>
-                    </div>
+                        {%endblock%}</a>
                 </div>
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+            </div>
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="true">
                     <!--                   Left Panel Nav Bar-->
 
@@ -141,6 +143,7 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
+
 
 
 </script>
@@ -205,6 +208,7 @@
   });
 
 
+
 </script>
 <script>
    function slidebar_open_close () {
@@ -236,6 +240,7 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 }
+
 
 
 </script>
