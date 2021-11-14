@@ -1,7 +1,6 @@
 from django.contrib import messages, auth
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-
+from django.contrib import messages
 # Create your views here.
 from .forms import SignUpForm
 
@@ -22,33 +21,14 @@ def login(request):
 
 
 def signup(request):
-	SignUp = SignUpForm
 	if request.method == 'POST':
-		first_name = request.POST['first_name']
-		last_name = request.POST['last_name']
-		email = request.POST['email']
-		password1 = request.POST['password1']
-		password2 = request.POST['password2']
-		if password1 == password2:
-			if User.objects.filter(email=email).exists():
-				messages.info(request, 'Username Taken')
-			else:
-				form = SignUpForm(request.POST or None)
-				if form.is_valid():
-					form.save()
-					print(form)
-
-					user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email, password=password1)
-					user.save()
-					messages.info(request, 'User Created')
-					return redirect('login')
-				context = {'form': form}
-				return render(request, 'user/signup.html', context)
-		else:
-			messages.info(request, 'Password does not match')
-		return redirect('/')
+		fm = SignUpForm(request.POST)
+		if fm.is_valid():
+			fm.save()
+			messages.success(request, 'Successfully Created Account')
 	else:
-		return render(request, 'user/signup.html', {'SignUpForm': SignUp})
+		fm = SignUpForm()
+	return render(request, 'user/signup.html', {'form': fm})
 
 
 def logout(request):

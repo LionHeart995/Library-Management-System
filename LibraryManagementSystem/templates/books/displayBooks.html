@@ -99,24 +99,20 @@
                         {% for b in BookDetails %}
                         <tr class="odd">
                             <td> {{ b.BookID }}</td>
-                            <td>Firefox 1.0</td>
-                            <td>Win 98+ / OSX.2+</td>
-                            <td>1.7</td>
-                            <td>A</td>
-                        </tr>
-                        <tr class="even">
-                            <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                            <td>Firefox 1.5</td>
-                            <td>Win 98+ / OSX.2+</td>
-                            <td>1.8</td>
-                            <td>A</td>
+                            <td> {{ b.BookTitle }}</td>
+                            <td> {{ b.BookAuthor }}</td>
+                            <td> {{ b.BookEdition }}</td>
+                            <td> {{ b.BookPrice }}</td>
+                            <td> {{ b.BookLanguage }}</td>
+                            <td> {{ b.BookCategory }}</td>
+                            <td> {{ b.BookPublicationYear }}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
                     </table>
-                    {% else %}
-                    <h1>No Data to Show</h1>
-                    {% endif %}
+<!--                    {% else %}-->
+<!--                    <h1>No Data to Show</h1>-->
+<!--                    {% endif %}-->
                 </div>
             </div>
             <div class="row">
