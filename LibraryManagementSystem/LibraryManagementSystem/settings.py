@@ -13,7 +13,13 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 from django.contrib.auth import get_user_model
+
+# import django
+# django.setup()
+# User = get_user_model()
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +32,7 @@ SECRET_KEY = 'django-insecure-7m26=8ax5*j60^l1ri+qh_wz)kovvf$0h6hhz5xk^=gg^j@shp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 

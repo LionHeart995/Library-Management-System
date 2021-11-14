@@ -13,6 +13,7 @@ from django.contrib.auth.models import User
 # Sign Up Forms
 
 class SignUpForm(UserCreationForm):
+
 	# first_name = forms.CharField(max_length=30, required=True, widget=x3, label=False)
 	# last_name = forms.CharField(max_length=30, required=True, widget=x4, label=False)
 	# email = forms.EmailField(max_length=254, required=True, widget=x6, label=False)

@@ -1,4 +1,6 @@
 from django.contrib import messages, auth
+from django.contrib.auth.forms import AuthenticationForm
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib import messages
 # Create your views here.
@@ -6,21 +8,26 @@ from .forms import SignUpForm
 
 
 def login(request):
-	if request.method == 'POST':
-		email = request.POST['email']
-		password = request.POST['password']
-		user = auth.authenticate(email=email, password=password)
-
-		if user is not None:
-			auth.login(request, user)
-			return redirect("/")
-
+	if not request.user.is_authenticated:
+		if request.method == 'POST':
+			fm = AuthenticationForm(request=request, data=request.POST)
+			if fm.is_valid():
+				email = fm.cleaned_data['email']
+				password = fm.cleaned_data['password']
+				user = auth.authenticate(email=email, password=password)
+				if user is not None:
+					auth.login(request, user)
+					messages.info(request, 'Invalid Credentials')
+					return render(request, 'books/displayBooks.html')
+			else:
+				fm = AuthenticationForm()
+		return render(request, 'user/login.html', {'form': fm})
 	else:
-		messages.info(request, 'Invalid Credentials')
-		return render(request, 'user/login.html')
+		return render(request, 'books/displayBooks.html')
 
 
 def signup(request):
+	fm=SignUpForm
 	if request.method == 'POST':
 		fm = SignUpForm(request.POST)
 		if fm.is_valid():

@@ -63,56 +63,59 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    {% if BookDetails %}
-                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid"
-                           aria-describedby="example1_info">
-                        <thead>
-                        <tr role="row">
-                            <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1"
-                                colspan="1" aria-sort="ascending"
-                                aria-label="BookID: activate to sort column descending">BookID
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                aria-label="BookTitle: activate to sort column ascending">BookTitle
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                aria-label="BookAuthor: activate to sort column ascending">BookAuthor
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                aria-label="BookEdition: activate to sort column ascending">BookEdition
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                aria-label="BookPrice: activate to sort column ascending">BookPrice
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                aria-label="BookLanguage: activate to sort column ascending">BookLanguage
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                aria-label="BookCategory: activate to sort column ascending">BookCategory
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                aria-label="BookPublicationYear: activate to sort column ascending">BookPublicationYear
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for b in BookDetails %}
-                        <tr class="odd">
-                            <td> {{ b.BookID }}</td>
-                            <td> {{ b.BookTitle }}</td>
-                            <td> {{ b.BookAuthor }}</td>
-                            <td> {{ b.BookEdition }}</td>
-                            <td> {{ b.BookPrice }}</td>
-                            <td> {{ b.BookLanguage }}</td>
-                            <td> {{ b.BookCategory }}</td>
-                            <td> {{ b.BookPublicationYear }}</td>
-                        </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-<!--                    {% else %}-->
-<!--                    <h1>No Data to Show</h1>-->
-<!--                    {% endif %}-->
+                    <div class="card-body">
+                        {% if bookDetails %}
+                        <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid"
+                               aria-describedby="example1_info">
+                            <thead>
+                            <tr role="row">
+                                <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1"
+                                    colspan="1" aria-sort="ascending"
+                                    aria-label="BookID: activate to sort column descending">BookID
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="BookTitle: activate to sort column ascending">BookTitle
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="BookAuthor: activate to sort column ascending">BookAuthor
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="BookEdition: activate to sort column ascending">BookEdition
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="BookPrice: activate to sort column ascending">BookPrice
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="BookLanguage: activate to sort column ascending">BookLanguage
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="BookCategory: activate to sort column ascending">BookCategory
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="BookPublicationYear: activate to sort column ascending">
+                                    BookPublicationYear
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for b in bookDetails %}
+                            <tr class="odd">
+                                <td> {{ b.BookID }}</td>
+                                <td> {{ b.BookTitle }}</td>
+                                <td> {{ b.BookAuthor }}</td>
+                                <td> {{ b.BookEdition }}</td>
+                                <td> {{ b.BookPrice }}</td>
+                                <td> {{ b.BookLanguage }}</td>
+                                <td> {{ b.BookCategory }}</td>
+                                <td> {{ b.BookPublicationYear }}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        {% else %}
+                        <h1>No Data to Show</h1>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             <div class="row">

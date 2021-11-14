@@ -10,17 +10,16 @@
       style="height: auto; left: 0;">
 <div class="wrapper">
     <!-- Content Wrapper. Contains page content -->
+
     <div class="content-wrapper" style="min-height: 700px;">
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <!-- <h1 class="m-0"> Top Navigation <small>Example 3.0</small></h1>  -->
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <!-- <li class="breadcrumb-item text-info font-weight-normal"><a href="#">Home</a></li> -->
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -43,10 +42,12 @@
                         <h3>Login</h3>
                         <hr style="border-top: 1px solid white">
 
-                        <form method="post">
+                        <form method="post" style="align:center;">
                             {% csrf_token %}
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Username" name="Username">
+                            <div class="input-group mb-2">
+<!--                                <input type="text" class="form-control" placeholder="Username" name="Username">-->
+                                <label class="input-group mb3" style="">Email</label>
+                                    {{form.username}}
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-user"></span>
@@ -54,7 +55,8 @@
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="password" class="form-control" placeholder="Password" name="Password">
+<!--                                <input type="password" class="form-control" placeholder="Password" name="Password">-->
+                                <label class="input-group mb3">Password</label>{{form.password}}
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-lock"></span>

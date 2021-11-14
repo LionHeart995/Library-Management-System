@@ -10,7 +10,8 @@
             <div class="card card-widget widget-user-2 shadow-sm" style="width:50%" align="center">
                 <div class="widget-user-header bg-primary" align="center">
                     <div class="widget-user-image" align="center">
-                        <i class="fab fa-bootstrap fa-6x"></i>
+                        <!--                        <img src="https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-book-office-stationery-justicon-lineal-color-justicon.png">-->
+                        <!--                        <i href="https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-book-office-stationery-justicon-lineal-color-justicon.png"></i>-->
                     </div>
                     <h1 align="center"><strong>WELCOME TO<br> LIBRARY MANAGEMENT SYSTEM</strong></h1>
                 </div>
@@ -18,90 +19,44 @@
                 <!--<div class="card">-->
                 <div class="card-body register-card-body">
 
-                    <h3>Sign Up</h3>
+                    <h3>Register New User</h3>
                     <hr style="border-top: 1px solid white">
 
-                    <h5 class="login-box-msg">Register a new user</h5>
+                    <!--                    <h5 class="login-box-msg">Register a new user</h5>-->
 
-                    <form method="post" action="" novalidate>
-                        <div class="input-group mb-3">
-                                                {% csrf_token %}
-                                                {% for fm in form %}
-                                                {{fm.label_tag}} {{fm}} {{fm.errors | striptags}}<br><br>
-                                                {% endfor %}
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        {% for fm in form %}
+                            {{fm.label_tag}}&nbsp;
+                            {{fm}}<br>
+                        {% if fm.help_text %}
+                            <small style="color:white;">{{field.help_text}}</small>
+                        {%endif%}
+                        {% for error in field.errors %}
+                            <p style="color:white;">{{error}}</p>
+                        {%endfor%}
+                        {% endfor %}
+
+                        <div class="col-3">
+                            <a href="{% url 'login' %}" style="color:white">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    Register
+                                </button>
+                            </a>
                         </div>
-
-                        ***********************************************************************************
-                        <!--                        <div class="input-group mb-3">-->
-                        <!--                            {{ form.first_name }}-->
-                        <!--                            <div class="input-group-append">-->
-                        <!--                                <div class="input-group-text">-->
-                        <!--                                    <span class="fas fa-user"></span>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
-                        <!--                        <div class="input-group mb-3">-->
-                        <!--                            {{ form.last_name }}-->
-                        <!--                            {{ form.errors|striptags}}-->
-                        <!--                            <div class="input-group-append">-->
-                        <!--                                <div class="input-group-text">-->
-                        <!--                                    <span class="fas fa-user"></span>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
-                        <!--                        <div class="input-group mb-3">-->
-                        <!--                            {{ form.email }}-->
-                        <!--                            {{ form.errors|striptags}}-->
-                        <!--                            <div class="input-group-append">-->
-                        <!--                                <div class="input-group-text">-->
-                        <!--                                    <span class="fas fa-envelope"></span>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
-                        <!--                        <div class="input-group mb-3">-->
-                        <!--                            {{ form.password1 }}-->
-                        <!--                            {{ form.errors|striptags}}-->
-                        <!--                            <div class="input-group-append">-->
-                        <!--                                <div class="input-group-text">-->
-                        <!--                                    <span class="fas fa-lock"></span>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
-                        <!--                        <div class="input-group mb-3">-->
-                        <!--                            {{ form.password2 }}-->
-                        <!--                            {{ form.errors|striptags}}-->
-                        <!--                            <div class="input-group-append">-->
-                        <!--                                <div class="input-group-text">-->
-                        <!--                                    <span class="fas fa-lock"></span>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
-
-                                                <div class="col-3">
-                                                    <a href="{% url 'login' %}" style="color:white">
-                                                        <button type="submit" class="btn btn-primary btn-block">
-                                                            Register
-                                                        </button>
-                                                    </a>
-                                                </div>
-                                                <p></p>
-                                                <a href="{% url 'login' %}">
-                                                    <center><i>I already have an Account</i></center>
-                                                </a>
-                                                <!-- /.col -->
+                        <p></p>
+                        <a href="{% url 'login' %}">
+                            <center><i>I already have an Account</i></center>
+                        </a>
+                        <!-- /.col -->
 
                     </form>
-                    <div class="container">
-                        <div class="toast-primary">
-                            <!--                            <div class="toast-header">Error</div>-->
-                            <div class="toast-body">
+                    <div class="toast-body">
                                 {% if messages %}
                                 {% for message in messages %}
                                 <small {% if messages.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>
                                 {% endfor %}
                                 {% endif %}
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -114,6 +69,8 @@
 $(document).ready(function(){
     $('.toast').toast('show');
 });
+
+
 
 
 
