@@ -1,11 +1,9 @@
 from django.shortcuts import render
-from .models import BookDetails
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
-from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework.views import APIView
+
+from .forms import addBookDetails, updateBookDetails
+from .models import BookDetails
 from .serializers import BookDetailsSerializer
 
 
@@ -26,11 +24,31 @@ def base(request):
 
 
 def addBook(request):
-	return render(request, 'books/addBook.html')
+	if request.method == 'POST':
+		bk = addBookDetails(request.POST)
+		if bk.is_valid():
+			x1 = bk.cleaned_data['BookID']
+			x2 = bk.cleaned_data['BookTitle']
+			x3 = bk.cleaned_data['BookAuthor']
+			x4 = bk.cleaned_data['BookEdition']
+			x5 = bk.cleaned_data['BookPrice']
+			x6 = bk.cleaned_data['BookLanguage']
+			x7 = bk.cleaned_data['BookCategory']
+			x8 = bk.cleaned_data['BookPublicationYear']
+			reg = BookDetails(BookID=x1, BookTitle=x2, BookAuthor=x3, BookEdition=x4, BookPrice=x5, BookLanguage=x6,
+			                  BookCategory=x7, BookPublicationYear=x8)
+			reg.save()
+		else:
+			bk = addBookDetails()
+	return render(request, 'books/addBook.html', {'BookDetails': bk})
 
 
 def deleteBook(request):
-	return render(request, 'books/deleteBook.html')
+	bkDetails = BookDetails.objects.filter()
+	if request.method == 'POST':
+		pi = BookDetails.object.get(pk=id)
+		pi.delete()
+	return render(request, 'books/deleteBook.html', {'bookDetails': bkDetails})
 
 
 def displayBook(request):
@@ -38,5 +56,24 @@ def displayBook(request):
 	return render(request, 'books/displayBooks.html', {'bookDetails': bkDetails})
 
 
-def updateBook(request):
-	return render(request, 'books/updateBook.html')
+def updateBook(request, id):
+	bkDetails = BookDetails.objects.all()
+	if request.method == 'POST':
+
+		bk = updateBookDetails(request.POST)
+
+		if bk.is_valid():
+			x1 = bk.cleaned_data['BookID']
+			x2 = bk.cleaned_data['BookTitle']
+			x3 = bk.cleaned_data['BookAuthor']
+			x4 = bk.cleaned_data['BookEdition']
+			x5 = bk.cleaned_data['BookPrice']
+			x6 = bk.cleaned_data['BookLanguage']
+			x7 = bk.cleaned_data['BookCategory']
+			x8 = bk.cleaned_data['BookPublicationYear']
+			reg = BookDetails(BookID=x1, BookTitle=x2, BookAuthor=x3, BookEdition=x4, BookPrice=x5, BookLanguage=x6,
+			                  BookCategory=x7, BookPublicationYear=x8)
+			reg.save()
+		else:
+			bk = addBookDetails()
+	return render(request, 'books/updateBook.html', {'bookDetails': bk})

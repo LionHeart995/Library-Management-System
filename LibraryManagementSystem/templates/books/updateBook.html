@@ -29,5 +29,57 @@
 </li>
 {% endblock %}
 {% block content %}
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Update Book</h3>
+    </div>
+    <form>
+        {% csrf_token %}
+        <div id="Show" style="display: none;">
+            {% for q in BookDetails %}
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Book ID</label>
+                    {{BookDetails.BookID}}
+                </div>
+                <div class="form-group">
+                    <label>Book Title</label>
+                    {{BookDetails.BookTitle}}
+                </div>
+                <div class="form-group">
+                    <label>Book Author</label>
+                    {{BookDetails.BookAuthor}}
+                </div>
+                <div class="form-group">
+                    <label>Book Edition</label>
+                    {{BookDetails.BookEdition}}
+                </div>
+                <div class="form-group">
+                    <label>Book Price</label>
+                    {{BookDetails.BookPrice}}
+                </div>
 
+                <div class="form-group">
+                    <label>Book Language</label>
+                    {{BookDetails.BookLanguage}}
+                </div>
+
+                <div class="form-group">
+                    <label>Book Category</label>
+                    {{BookDetails.BookCategory}}
+                </div>
+
+                <div class="form-group">
+                    <label>Book Publication Year</label>
+                    {{BookDetails.BookPublicationYear}}
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            {% endfor %}
+        </div>
+    </form>
+</div>
 {% endblock %}

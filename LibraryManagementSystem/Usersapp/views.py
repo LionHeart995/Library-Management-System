@@ -1,8 +1,8 @@
-from django.contrib import messages, auth
-from django.contrib.auth.forms import AuthenticationForm
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.contrib import auth
 from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render
+
 # Create your views here.
 from .forms import SignUpForm
 
@@ -21,18 +21,21 @@ def login(request):
 					return render(request, 'books/displayBooks.html')
 			else:
 				fm = AuthenticationForm()
-		return render(request, 'user/login.html', {'form': fm})
+				return render(request, 'user/login.html', {'form': fm})
 	else:
 		return render(request, 'books/displayBooks.html')
 
 
 def signup(request):
-	fm=SignUpForm
+	fm = SignUpForm
 	if request.method == 'POST':
 		fm = SignUpForm(request.POST)
 		if fm.is_valid():
 			fm.save()
 			messages.success(request, 'Successfully Created Account')
+			return render(request, 'user/login.html')
+		else:
+			fm = SignUpForm()
 	else:
 		fm = SignUpForm()
 	return render(request, 'user/signup.html', {'form': fm})
